@@ -5,14 +5,6 @@
         "virtualNetworks_smartscheduler_vnet_name": {
             "defaultValue": "smartscheduler-vnet",
             "type": "String"
-        },
-        "networkSecurityGroups_smartscheduler_ase_NSG_externalid": {
-            "defaultValue": "/subscriptions/6569e944-8e78-408b-8b35-94146ba1dfc8/resourceGroups/Smart-Scheduler/providers/Microsoft.Network/networkSecurityGroups/smartscheduler-ase-NSG",
-            "type": "String"
-        },
-        "routeTables_smartscheduler_ase_Route_Table_externalid": {
-            "defaultValue": "/subscriptions/6569e944-8e78-408b-8b35-94146ba1dfc8/resourceGroups/Smart-Scheduler/providers/Microsoft.Network/routeTables/smartscheduler-ase-Route-Table",
-            "type": "String"
         }
     },
     "variables": {},
@@ -32,18 +24,12 @@
                     {
                         "name": "smartscheduler-subnet",
                         "properties": {
-                            "addressPrefix": "192.168.250.0/24",
-                            "networkSecurityGroup": {
-                                "id": "[parameters('networkSecurityGroups_smartscheduler_ase_NSG_externalid')]"
-                            },
-                            "routeTable": {
-                                "id": "[parameters('routeTables_smartscheduler_ase_Route_Table_externalid')]"
+                            "addressPrefix": "192.168.250.0/24"
                             },
                             "delegations": [],
                             "privateEndpointNetworkPolicies": "Enabled",
                             "privateLinkServiceNetworkPolicies": "Enabled"
-                        }
-                    },
+                        },
                     {
                         "name": "GatewaySubnet",
                         "properties": {
@@ -82,12 +68,6 @@
             ],
             "properties": {
                 "addressPrefix": "192.168.250.0/24",
-                "networkSecurityGroup": {
-                    "id": "[parameters('networkSecurityGroups_smartscheduler_ase_NSG_externalid')]"
-                },
-                "routeTable": {
-                    "id": "[parameters('routeTables_smartscheduler_ase_Route_Table_externalid')]"
-                },
                 "delegations": [],
                 "privateEndpointNetworkPolicies": "Enabled",
                 "privateLinkServiceNetworkPolicies": "Enabled"
